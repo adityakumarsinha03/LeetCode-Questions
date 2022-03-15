@@ -15,11 +15,18 @@ public:
                 }
             }
         
-        int i=0, j=str.size()-1;
+      /*  int i=0, j=str.size()-1;
         while(i<j){
             if(str[i]!=str[j])
                 return false;
             i++,j--;
+        }
+        return true;   */
+        
+        int n=str.length();
+        for(int i=0;i<n/2;i++){
+            if(str[i] != str[n-1-i])
+                return false;
         }
         return true;
         
