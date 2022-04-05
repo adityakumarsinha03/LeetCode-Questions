@@ -1,19 +1,17 @@
 class Solution {
 public:
-    // Two point formula of line, if (x2-x1)*(y1-y0) = (x1-x0)(y2-y1), then a straight line, otherwise not
-   bool checkStraightLine(vector<vector<int>>& coordinates) {
-        int n = coordinates.size();
+    bool checkStraightLine(vector<vector<int>>& coordinates) {
+      int  ydiff = coordinates[1][1] - coordinates[0][1];    //y1-y0  
+      int  xdiff = coordinates[1][0] - coordinates[0][0];    //x1-x0
         
-        int xdiff = coordinates[1][0] - coordinates[0][0]; // (x1 - x0)
-        int ydiff = coordinates[1][1] - coordinates[0][1]; // (y1 - y0)
-        
-        for(int i = 2; i < n; i++) {
-            int x1 = coordinates[i][0] - coordinates[0][0]; // (x - x0)
-            int y1 = coordinates[i][1] - coordinates[0][1]; // (y - y0)
+        for(int i=0;i<coordinates.size();i++){
+            int y = coordinates[i][1] - coordinates[0][1];  //y-y0
+            int x = coordinates[i][0] - coordinates[0][0];  //x-x0
             
-            if(x1 * ydiff != y1 * xdiff) return false; 
+            //   y-y0/x-x0 == y1-y0/x1-x0
+            if(y * xdiff != x * ydiff)
+                return false;
         }
-        
         return true;
     }
 };
