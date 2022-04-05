@@ -21,8 +21,6 @@ public:
 class Solution {
 public:
     vector<int> helper(Node* root, vector<int> &ans) {
-        if(root==NULL)
-            return ans;
         ans.push_back(root->val);
         for(int i=0; i<root->children.size();i++){
             helper(root->children[i], ans);
@@ -32,7 +30,8 @@ public:
     
     vector<int> preorder(Node* root) {
         vector<int> ans;
-        
+        if(root==NULL)
+            return ans;
         return helper(root, ans);
     }
 };
