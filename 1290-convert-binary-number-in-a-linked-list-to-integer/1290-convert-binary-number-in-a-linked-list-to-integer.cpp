@@ -10,8 +10,16 @@
  */
 class Solution {
 public:
-      
-    int getDecimalValue(ListNode* head) {
+     int getDecimalValue(ListNode* head) {
+        int res=0;
+        while(head!=NULL){
+            res=res*2+head->val;
+            head=head->next;
+        }
+        return res;
+     }
+    
+    /*int getDecimalValue(ListNode* head) {
         string n="";
         while(head!=NULL){
             n+=to_string(head->val);
@@ -19,9 +27,9 @@ public:
         }
         int res=0, pv=1;
         for(int i=n.size()-1;i>=0;i--){
-            res+= (n[i]-'0')*pv;
+            res+= (n[i]-'0')*pv;         //stoi
             pv*=2;
         }
         return res;
-    }
+    }*/
 };
