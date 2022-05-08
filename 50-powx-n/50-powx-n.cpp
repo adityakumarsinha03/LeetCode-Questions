@@ -20,6 +20,7 @@ public:
         }
         if(n<0)
             ans= 1/ans;
+          //  ans= (double)1/(double)ans;
         return ans;
     }
 };
