@@ -1,5 +1,6 @@
 class Solution {
-public:
+public: 
+    
    vector<int> twoSum(vector<int>& nums, int target) {
        unordered_map<int,int> um;
        vector<int> ans;
@@ -12,7 +13,8 @@ public:
                um[nums[i]]=i;
        }
        return ans;
-   }
+   }  
+    
  /*   //Brute Force
   vector<int> twoSum(vector<int>& nums, int target) {
       vector<int> ans;
