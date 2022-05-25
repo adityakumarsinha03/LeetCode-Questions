@@ -20,7 +20,7 @@ public:
                      right--;
                  }else{
                 //res.push_back({nums[i], nums[j], nums[left], nums[right]});
-                      vector<int> quadruplet(4, 0); 
+                     vector<int> quadruplet(4, 0); 
                      quadruplet[0]=nums[i];
                      quadruplet[1]=nums[j];
                      quadruplet[2]=nums[left];
