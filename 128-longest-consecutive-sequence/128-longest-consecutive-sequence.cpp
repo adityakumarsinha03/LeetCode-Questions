@@ -6,16 +6,18 @@ public:
             s.insert(num);
         }
         
-        int mx=0;
+        int mx=0, count;
         for(int i=0;i<nums.size();i++){
             if(s.count(nums[i]-1)==0){
-                int currentNum= nums[i];
-                int currentStreak= 1;
-                while(s.count(currentNum+1)){
-                    currentNum+=1;
-                    currentStreak+=1;
+                count=1;
+                while(1){
+                    if(s.count(nums[i]+count)){
+                        count++;
+                    }else{
+                        break;
+                    }
                 }
-                mx= max(mx, currentStreak);
+                mx= max(mx, count);
             }
         }
         return mx;
