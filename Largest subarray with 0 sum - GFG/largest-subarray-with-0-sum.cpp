@@ -10,6 +10,9 @@ using namespace std;
 
 class Solution{
     public:
+    
+    //https://leetcode.com/problems/subarray-sum-equals-k/
+    
     int maxLen(vector<int>&A, int n)
     {   
     unordered_map<int, int> um;
@@ -17,7 +20,7 @@ class Solution{
     for(int i=0;i<n;i++){
         prefix_sum+=A[i];
         if(prefix_sum==0){
-            res= max(res, i+1);
+            res= i+1;
         }else if(um.find(prefix_sum)!=um.end()){
             res= max(res, i-um[prefix_sum]);
         }else{
