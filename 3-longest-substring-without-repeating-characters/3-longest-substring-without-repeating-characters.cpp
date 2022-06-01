@@ -1,6 +1,21 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+        vector<int> mpp(256, -1);
+        int l=0, r=0, ans=0;
+        while(r<s.size()){
+            if(mpp[s[r]]!=-1){
+                l= max(mpp[s[r]]+1, l);
+            }
+            mpp[s[r]]=r;
+            ans= max(ans, r-l+1);
+            r++;
+        }
+        return ans;
+    }    
+    
+    /*  O(2n) || O(n)
+    int lengthOfLongestSubstring(string s) {
         unordered_set<int> set;
         int ans=0, l=0;
         for(int r=0; r<s.size(); r++){     //travelling in outer loop 
@@ -14,7 +29,7 @@ public:
             ans=max(ans, r-l+1);
         }
         return ans;
-    }
+    } */
     
     /*  Sliding Window - Aditya Verma  ->  O(2n) || O(n)
     int lengthOfLongestSubstring(string s) {
