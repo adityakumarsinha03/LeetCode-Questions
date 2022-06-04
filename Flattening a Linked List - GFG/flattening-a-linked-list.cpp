@@ -141,6 +141,9 @@ Node *flatten(Node *root)
    root->next= flatten(root->next);
    
    //small calculation
-   return merge2LL(root, root->next);
+   root=  merge2LL(root, root->next);
+   
+   return root;
+   // return  merge2LL(root, root->next);
 }
 
