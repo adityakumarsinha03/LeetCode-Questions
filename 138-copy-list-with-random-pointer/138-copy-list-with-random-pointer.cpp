@@ -16,6 +16,45 @@ public:
 
 class Solution {
 public:
+    // O(n)||O(1)
+    Node* copyRandomList(Node* head) {
+        if(head==NULL){
+            return head;
+        }
+        Node* iter= head;
+        //step 1
+        while(iter!=NULL){
+            Node* newnode= new Node(iter->val);
+            newnode->next=iter->next;
+            iter->next=newnode;
+            iter=iter->next->next;
+        }
+        //step 2
+        iter= head;
+        while(iter!=NULL){
+            if(iter->random != NULL){
+              iter->next->random= iter->random->next;
+            }    
+            iter=iter->next->next;  
+        }
+        //step 3
+        Node* copyhead= head->next;
+        Node* dummy= copyhead, *front= head;
+        iter= head;
+        while(iter!=NULL){
+            front= iter->next->next;
+            iter->next=front;
+            if(front){
+             dummy->next=front->next;
+            }    
+            
+            iter=front;
+            dummy=dummy->next;
+        }
+        return copyhead;
+    }
+    
+    /*  //  O(n)||O(n)
     Node* copyRandomList(Node* head) {
         unordered_map<Node*, Node*>um;
         Node* temp=head;
@@ -31,5 +70,5 @@ public:
            temp=temp->next; 
         }
         return um[head];
-    }
+    } */
 };
