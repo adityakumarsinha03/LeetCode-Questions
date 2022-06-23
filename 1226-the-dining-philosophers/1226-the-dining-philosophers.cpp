@@ -7,6 +7,7 @@ public:
                     function<void()> eat,
                     function<void()> putLeftFork,
                     function<void()> putRightFork) {
+        
             int left = philosopher % 5;
 			int right = (philosopher + 1) % 5;
         
@@ -18,8 +19,8 @@ public:
 			lock_guard left_lock(forks[left]);
 			lock_guard right_lock(forks[right]);
         
-			pickRightFork();
 			pickLeftFork();
+            pickRightFork();
 			eat();
 			putLeftFork();
 			putRightFork();
